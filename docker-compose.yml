@@ -13,7 +13,7 @@ services:
         max-size: "10m"
         max-file: "5"
     networks:
-      - db_localDB
+      - db_local
     volumes:
       - xml-data:/usr/src/app/xml-data
 
