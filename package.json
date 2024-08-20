@@ -14,7 +14,9 @@
     "test": "run-script-os",
     "test:win32": "SET \"TZ=Pacific/Nauru\" && npx jest --runInBand",
     "test:default": "TZ=Pacific/Nauru npx jest --runInBand",
-    "postinstall": "npm run api:load"
+    "api-load": "npm run api:load",
+    "parse-channels-cron": "npm run grab -- --channels=xml-data/custom-channels.xml --days=1 --output=xml-data/guide.xml --cron=\"0 8 * * *\"",
+    "parse-channels": "npm run grab -- --channels=xml-data/custom-channels.xml --output=xml-data/guide.xml --days=1 --maxConnections=1"
   },
   "private": true,
   "author": "Arhey",

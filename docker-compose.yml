@@ -1,0 +1,26 @@
+version: "3.4"
+
+services:
+  epg:
+    container_name: epg-fork
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${PORT}:3000"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    networks:
+      - db_localDB
+    volumes:
+      - xml-data:/usr/src/app/xml-data
+
+networks:
+  db_localDB:
+    external: true
+
+volumes:
+  xml-data:
+    external: true
